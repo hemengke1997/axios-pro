@@ -1,6 +1,6 @@
 {
   "name": "@minko-fe/axios-pro",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "基于axios封装的请求库",
   "type": "module",
   "keywords": [
