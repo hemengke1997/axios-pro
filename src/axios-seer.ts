@@ -9,7 +9,7 @@ import cloneDeep from 'clone-deep'
 import deepmerge from 'deepmerge'
 import omit from 'lodash.omit'
 import querystring from 'query-string'
-import { AxiosCanceler } from './AxiosCancel'
+import { AxiosCanceler } from './axios-cancel'
 import { isFunction, isString } from './is'
 import { joinTimestamp } from './utils'
 

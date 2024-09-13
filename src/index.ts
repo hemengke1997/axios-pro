@@ -22,5 +22,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-export * from './AxiosSeer'
-export * from './AxiosCancel'
+export * from './axios-seer'
+export * from './axios-cancel'
