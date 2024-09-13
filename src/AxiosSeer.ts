@@ -9,7 +9,7 @@ import cloneDeep from 'clone-deep'
 import deepmerge from 'deepmerge'
 import omit from 'lodash.omit'
 import querystring from 'query-string'
-import { AxiosCanceler } from './axiosCancel'
+import { AxiosCanceler } from './AxiosCancel'
 import { isFunction, isString } from './is'
 import { joinTimestamp } from './utils'
 
@@ -169,8 +169,6 @@ export const DEFAULT_TRANSFORM: AxiosTransform = {
   },
 
   requestInterceptors: (config) => {
-    config.headers = Object.assign({}, config.headers)
-
     return config
   },
 
@@ -209,7 +207,7 @@ export const DEFAULT_OPTIONS: CreateAxiosOptions = {
   },
 }
 
-export class AxiosPro {
+export class AxiosSeer {
   private axiosInstance: AxiosInstance
   readonly options: CreateAxiosOptions
 
@@ -372,7 +370,7 @@ export class AxiosPro {
               const ret = transformResponseHook(res) as unknown as T
               resolve(ret)
             } catch (err) {
-              reject(err || new Error('[axios-pro]: request error!'))
+              reject(err || new Error('[axios-seer]: request error!'))
             }
             return
           }

@@ -1,11 +1,11 @@
-# axios-pro
+# axios-seer
 
 ## Usage
 
 ```ts
-import { AxiosPro } from '@minko-fe/axios-pro'
+import { AxiosSeer } from '@minko-fe/axios-seer'
 
-const rq = new AxiosPro({
+const rq = new AxiosSeer({
   requestOptions: {
     // ...
   },
