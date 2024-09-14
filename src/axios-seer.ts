@@ -132,6 +132,14 @@ export const DEFAULT_TRANSFORM: AxiosTransform = {
 
     const data = config.data || false
 
+    config.headers = {
+      ...config.headers,
+
+      ...(config.method?.toLowerCase()
+        ? options[config.method.toLowerCase() as Lowercase<REQUEST_METHOD>]?.headers
+        : {}),
+    }
+
     if (config.method?.toUpperCase() === REQUEST_METHOD.GET) {
       if (!isString(params)) {
         config.params = Object.assign(params || {}, joinTimestamp(joinTime, false))
@@ -139,31 +147,21 @@ export const DEFAULT_TRANSFORM: AxiosTransform = {
         config.url = `${config.url + params}${joinTimestamp(joinTime, true)}`
         config.params = undefined
       }
-    } else {
-      if (config.method?.toUpperCase() === REQUEST_METHOD.POST) {
-        if (!config.headers?.['Content-Type']) {
-          config.headers = {
-            ...config.headers,
-            'Content-Type': CONTENT_TYPE.FORM_URLENCODED,
-          }
-        }
-      }
-      if (!isString(params)) {
-        if (
-          Reflect.has(config, 'data') &&
-          config.data &&
-          (Object.keys(config.data).length > 0 || config.data instanceof FormData)
-        ) {
-          config.data = data
-          config.params = params
-        } else {
-          config.data = params
-          config.params = undefined
-        }
+    } else if (!isString(params)) {
+      if (
+        Reflect.has(config, 'data') &&
+        config.data &&
+        (Object.keys(config.data).length > 0 || config.data instanceof FormData)
+      ) {
+        config.data = data
+        config.params = params
       } else {
-        config.url = config.url + params
+        config.data = params
         config.params = undefined
       }
+    } else {
+      config.url = config.url + params
+      config.params = undefined
     }
     return config
   },
