@@ -133,11 +133,10 @@ export const DEFAULT_TRANSFORM: AxiosTransform = {
     const data = config.data || false
 
     config.headers = {
-      ...config.headers,
-
       ...(config.method?.toLowerCase()
         ? options[config.method.toLowerCase() as Lowercase<REQUEST_METHOD>]?.headers
         : {}),
+      ...config.headers,
     }
 
     if (config.method?.toUpperCase() === REQUEST_METHOD.GET) {
