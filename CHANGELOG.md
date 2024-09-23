@@ -1,3 +1,12 @@
+## [1.0.2](https://github.com/hemengke1997/axios-seer/compare/v1.0.1...v1.0.2) (2024-09-23)
+
+
+### Bug Fixes
+
+* headers order ([83a6337](https://github.com/hemengke1997/axios-seer/commit/83a633794b78e1ac09244fb5290d60c1658f95a5))
+
+
+
 ## [1.0.1](https://github.com/hemengke1997/axios-seer/compare/v1.0.0...v1.0.1) (2024-09-14)
 
 
